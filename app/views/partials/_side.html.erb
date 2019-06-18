@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-      <title>Exam 2019</title>
+<head>
+      <title>Calmcap</title>
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,19 +10,26 @@
       <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
       <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
    </head>
-
-  <body>
-    
-    <%= render "partials/nav" %>
-    <%= render "partials/header"%>
-    <div id="side-content">
-    	<%= yield(:side_bar) %>
-    </div>
-    <div id="main-content">
-    	<%= yield %>
-	<%= render "partials/footer"%>
-    </div>
-    
-  </body>
-	
-</html>
+<nav>
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "Brands",   '#' %></li>
+	<% @products.each do |product| %>
+	  <ul>
+	   <li><%= link_to product.brand %></li>
+	  </ul>
+	<% end %>
+        <li><%= link_to "Models", '#' %></li>
+	<% @products.each do |product| %>
+	  <ul>
+	   <li><%= link_to product.model %></li>
+	  </ul>
+	<% end %>
+	<li><%= link_to "Price", '#' %></li>
+	<% @products.each do |product| %>
+	  <ul>
+	   <li><%= link_to product.brand %></li>
+	  </ul>
+	<% end %>
+      </ul>
+    </nav>
+            
